@@ -2,12 +2,9 @@ import { ShieldCheck, Timer, Ticket, Plane, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-
-
 export default function About() {
   return (
     <div className="w-full">
-
       {/* HERO SECTION */}
       <section className="relative h-[350px] flex items-center justify-center text-white">
         <img
@@ -122,25 +119,29 @@ export default function About() {
         </motion.div>
       </section>
 
-      {/* TIMELINE */}
+      {/* TIMELINE (DIUBAH MENJADI NARASI STARTUP PROFESIONAL) */}
       <section className="bg-white py-14 px-6 lg:px-20">
         <h2 className="text-3xl font-bold text-blue-700 mb-10 text-center">
-          Perjalanan SkyFly
+          Perjalanan Inovasi SkyFly
         </h2>
 
         <div className="border-l-4 border-blue-400 pl-6 max-w-2xl mx-auto space-y-10">
           {[
             {
-              title: "Oktober-2025 — Awal Terbentuk",
-              desc: "SkyFly pertama kali dikembangkan sebagai proyek kuliah."
+              title: "Fase 1 — Inisiasi & Konsep Dasar",
+              desc: "SkyFly lahir dari visi untuk menciptakan ekosistem reservasi tiket pesawat yang efisien, transparan, dan berpusat pada kenyamanan pengguna."
             },
             {
-              title: "November-2025 — Peningkatan Fitur",
-              desc: "Ditambah fitur Riwayat, Pembayaran, dan Destinasi Pilihan."
+              title: "Fase 2 — Pengembangan Arsitektur",
+              desc: "Membangun fondasi Full-Stack yang solid, mengintegrasikan sistem keamanan database, dan merancang antarmuka (UI/UX) yang intuitif."
             },
             {
-              title: "Desember-2025 — Semakin Berkembang",
-              desc: "SkyFly menjadi aplikasi pemesanan yang lebih profesional."
+              title: "Fase 3 — Integrasi Sistem Pembayaran",
+              desc: "Memperluas kapabilitas sistem dengan simulasi pembayaran dinamis dan manajemen pembatalan (refund) otomatis secara real-time."
+            },
+            {
+              title: "Fase 4 — Peluncuran Resmi",
+              desc: "SkyFly resmi beroperasi penuh, siap melayani manajemen rute penerbangan dengan standar industri teknologi modern."
             },
           ].map((item, index) => (
             <motion.div
@@ -151,13 +152,13 @@ export default function About() {
               viewport={{ once: true }}
             >
               <h4 className="text-xl font-semibold text-blue-600">{item.title}</h4>
-              <p className="text-gray-600">{item.desc}</p>
+              <p className="text-gray-600 mt-1">{item.desc}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* TEAM SECTION */}
+      {/* TEAM SECTION (DITENGAHKAN DENGAN GRID-COLS-4) */}
       <section className="px-6 lg:px-20 py-16 bg-gradient-to-br from-blue-50 to-sky-100">
         <h2 className="text-3xl font-bold text-center text-blue-700 mb-12">
           Tim Pengembang
@@ -171,32 +172,24 @@ export default function About() {
             hidden: {},
             visible: { transition: { staggerChildren: 0.2 } }
           }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl mx-auto"
+          /* 🚨 PERUBAHAN DI SINI: Dari lg:grid-cols-5 menjadi lg:grid-cols-4 dan max-w-5xl */
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto"
         >
           {[
             {
               role: "Muhammad Haqi",
-              
               img: "/haqiii.jpg",
             },
             {
-              role: "Syahid Lukman",
-              
-              img: "/syahid.png",
-            },
-            {
-              role: "Nabilah Putri",
-              
-              img: "/nabila.jpg",
+              role: "Varel Hutabarat",
+              img: "/varell.jpg",
             },
             {
               role: "Imam Al-Bukhori",
-              
               img: "/imam.jpg",
             },
             {
               role: "Jefri Al-Bukhori",
-              
               img: "/jefri.jpg",
             },
           ].map((item, i) => (
@@ -217,7 +210,6 @@ export default function About() {
               />
 
               <h3 className="text-xl font-semibold text-blue-700">{item.role}</h3>
-              <p className="text-gray-600 mt-2">{item.desc}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -244,18 +236,17 @@ export default function About() {
         </motion.p>
 
         <motion.div
-  initial={{ opacity: 0, scale: 0.9 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  transition={{ delay: 0.3 }}
->
-  <Link
-    to="/pesan"
-    className="px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition"
-  >
-    Pesan Tiket Sekarang
-  </Link>
-</motion.div>
-
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          <Link
+            to="/pesan"
+            className="px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition inline-block"
+          >
+            Pesan Tiket Sekarang
+          </Link>
+        </motion.div>
       </section>
     </div>
   );
