@@ -24,12 +24,12 @@ body::after {
 
 body::before {
   top: 0;
-  background-image: url("https://i.ibb.co/qgWsF3w/clouds-top.png");
+  
 }
 
 body::after {
   bottom: 0;
-  background-image: url("https://i.ibb.co/zXvB54f/clouds-bottom.png");
+  
 }
 
 /* Dark mode versi langit malam */
