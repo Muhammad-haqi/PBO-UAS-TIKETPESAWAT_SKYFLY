@@ -52,7 +52,7 @@ export default function RiwayatPage() {
         console.log("Memuat riwayat untuk ID:", freshUser.id, "Nama:", freshUser.namaLengkap);
 
         // 🟢 GUNAKAN freshUser.id DI SINI
-        fetch(`http://localhost:5000/api/pesanan/riwayat?userId=${freshUser.id}`, { 
+        fetch(`https://pbo-skyfly-backend-production.up.railway.app/api/pesanan/riwayat?userId=${freshUser.id}`, { 
             method: 'GET',
             headers: {
                 "Authorization": `Bearer ${token}` 
@@ -106,7 +106,7 @@ export default function RiwayatPage() {
         payload.status = "Sudah dibayar";
 
         try {
-             const res = await fetch(`http://localhost:5000/api/pesanan/${selectedOrder.id}`, {
+             const res = await fetch(`https://pbo-skyfly-backend-production.up.railway.app/api/pesanan/${selectedOrder.id}`, {
                 method: "PUT",
                 headers: { 
                     "Content-Type": "application/json",
@@ -152,7 +152,7 @@ export default function RiwayatPage() {
         }
 
         try {
-            const res = await fetch(`http://localhost:5000/api/pesanan/${id}`, {
+            const res = await fetch(`https://pbo-skyfly-backend-production.up.railway.app/api/pesanan/${id}`, {
                 method: "DELETE",
                 headers: {
                      "Authorization": `Bearer ${token}` 
@@ -200,7 +200,7 @@ export default function RiwayatPage() {
         payload.paid = false;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/pesanan/${selectedOrder.id}`, {
+            const res = await fetch(`https://pbo-skyfly-backend-production.up.railway.app/api/pesanan/${selectedOrder.id}`, {
                 method: "PUT",
                 headers: { 
                     "Content-Type": "application/json",

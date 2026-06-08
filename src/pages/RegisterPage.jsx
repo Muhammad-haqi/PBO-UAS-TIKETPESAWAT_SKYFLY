@@ -55,8 +55,8 @@ export default function RegisterPage() {
 
         setIsLoading(true);
         try {
-            // URL yang benar: http://localhost:5000/api/auth/register
-            const res = await fetch("http://localhost:5000/api/auth/register", {
+            // URL yang benar: https://pbo-skyfly-backend-production.up.railway.app/api/auth/register
+            const res = await fetch("https://pbo-skyfly-backend-production.up.railway.app/api/auth/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(registrationData),

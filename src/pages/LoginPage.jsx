@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebook, FaTiktok, FaUnlockAlt } from "react-icons/fa"; // 🔑 Import FaUnlockAlt
 
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "https://pbo-skyfly-backend-production.up.railway.app";
 
 export default function LoginPage({ onLogin }) {
     const navigate = useNavigate();

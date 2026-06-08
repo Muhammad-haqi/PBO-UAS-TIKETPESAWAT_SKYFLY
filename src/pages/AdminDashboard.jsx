@@ -29,7 +29,7 @@ export default function AdminDashboard() {
             
             try {
                 // 2. Panggil route admin
-                const res = await fetch(`http://localhost:5000/api/pesanan/admin/all`, {
+                const res = await fetch(`https://pbo-skyfly-backend-production.up.railway.app/api/pesanan/admin/all`, {
                     method: 'GET',
                     headers: {
                         "Authorization": `Bearer ${token}` 

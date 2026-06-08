@@ -182,8 +182,8 @@ export default function PesanPage() {
 
         const method = orderToEdit ? "PUT" : "POST";
         const url = orderToEdit
-            ? `http://localhost:5000/api/pesanan/${form.id}`
-            : "http://localhost:5000/api/pesanan";
+            ? `https://pbo-skyfly-backend-production.up.railway.app/api/pesanan/${form.id}`
+            : "https://pbo-skyfly-backend-production.up.railway.app/api/pesanan";
 
         const successMessage = orderToEdit ? "Perubahan pesanan berhasil disimpan!" : "Pemesanan berhasil!";
 

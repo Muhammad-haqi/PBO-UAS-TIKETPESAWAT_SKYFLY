@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaUnlockAlt } from "react-icons/fa"; // Icon untuk admin
 
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "https://pbo-skyfly-backend-production.up.railway.app";
 
 export default function AdminLoginPage() {
     const navigate = useNavigate();
