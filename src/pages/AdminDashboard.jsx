@@ -73,9 +73,38 @@ export default function AdminDashboard() {
         .reduce((sum, o) => sum + (o.total || 0), 0);
     const pesananTertunda = orders.filter(o => !o.paid).length;
 
-    // Fungsi dummy untuk tombol aksi
-    const handleAction = (action, id) => {
-        alert(`Aksi [${action}] untuk ID Pesanan: ${id} akan dihubungkan ke Backend nanti.`);
+    // ==========================================
+    // FUNGSI AKSI (HAPUS & KONFIRMASI)
+    // ==========================================
+    const handleAction = async (action, id) => {
+        if (action === 'Hapus') {
+            const konfirmasi = window.confirm(`Apakah kamu yakin ingin menghapus pesanan dengan ID: #${id}?`);
+            if (!konfirmasi) return;
+
+            try {
+                const token = getToken();
+                const response = await fetch(`https://pbo-skyfly-backend-production.up.railway.app/api/pesanan/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    alert("Data pesanan berhasil dihapus!");
+                    // Update state orders agar baris tabel langsung hilang tanpa reload halaman
+                    setOrders(prevOrders => prevOrders.filter(o => o.id !== id));
+                } else {
+                    alert("Gagal menghapus data. Pastikan endpoint di backend sudah benar.");
+                }
+            } catch (error) {
+                console.error("Error menghapus data:", error);
+                alert("Terjadi kesalahan jaringan.");
+            }
+        } else if (action === 'Konfirmasi') {
+            alert(`Aksi [Konfirmasi] untuk ID Pesanan: ${id} belum dihubungkan ke backend.`);
+            // Nanti bisa ditambahkan logika fetch metode PUT/PATCH di sini
+        }
     };
 
     if (loading) {
